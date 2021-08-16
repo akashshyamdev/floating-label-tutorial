@@ -1,0 +1,91 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	--focus-color: #5fa8d3;
+}
+
+section {
+	display: flex;
+	align-items: center;
+	height: 100vh;
+}
+
+.form {
+	width: 40%;
+	padding: 5rem;
+	margin: 0 auto;
+	background: aliceblue;
+}
+
+.form h1 {
+	font-family: 'Quicksand';
+	font-size: 3rem;
+	text-align: center;
+}
+
+.form-group {
+	position: relative;
+	width: 300px;
+	height: 50px;
+	margin: 20px auto 0;
+	overflow: hidden;
+}
+
+.form-group:first-child {
+	margin-top: 40px;
+}
+
+.form-input {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: transparent;
+	padding-top: 20px;
+}
+
+.form-label {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Montserrat';
+	border-bottom: 1px solid rgb(85, 85, 85);
+	cursor: pointer;
+}
+
+.form-label::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	height: 100%;
+	width: 100%;
+	border-bottom: 3px solid var(--focus-color);
+	transform: translateX(-150%);
+	transition: 0.3s all ease-out;
+}
+
+.form-label span {
+	position: absolute;
+	left: 0;
+	bottom: 5px;
+	font-size: 1.2rem;
+	transition: 0.3s all ease;
+}
+
+.form .form-input:focus + .form-label span,
+.form .form-input:valid + .form-label span {
+	color: var(--focus-color);
+	font-size: 1rem;
+	transform: translateY(-150%);
+}
+
+.form .form-input:focus + .form-label::after,
+.form .form-input:valid + .form-label::after {
+	transform: translateX(0%);
+}
